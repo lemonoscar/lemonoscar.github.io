@@ -1,11 +1,11 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>徐浩钦 - 个人网站</title>
+    <title>徐浩钦 - 个人网站 | Xu Haoqin - Personal Website</title>
     <style>
-        /* 全局样式 */
+        /* Same CSS styles as before, unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -24,8 +24,6 @@
         a:hover {
             color: #0056b3;
         }
-
-        /* 导航栏 */
         nav {
             position: fixed;
             top: 0;
@@ -46,8 +44,6 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
-        /* 通用容器 */
         .section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -59,8 +55,6 @@
         }
         h1 { font-size: 36px; }
         h2 { font-size: 28px; }
-
-        /* 首页 */
         #home {
             height: 100vh;
             background: linear-gradient(135deg, #007BFF, #FFFFFF);
@@ -91,8 +85,6 @@
         .btn:hover {
             background: #0056b3;
         }
-
-        /* 关于我 */
         #about {
             background: #FFFFFF;
         }
@@ -100,8 +92,6 @@
             font-size: 16px;
             margin-bottom: 15px;
         }
-
-        /* 研究 */
         #research .card {
             background: #FFFFFF;
             padding: 20px;
@@ -117,8 +107,6 @@
             font-size: 20px;
             margin-bottom: 10px;
         }
-
-        /* 项目 */
         #projects .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -134,8 +122,6 @@
         #projects .card:hover {
             transform: translateY(-5px);
         }
-
-        /* 联系我 */
         #contact {
             text-align: center;
         }
@@ -143,8 +129,6 @@
             margin: 0 10px;
             font-size: 18px;
         }
-
-        /* 响应式设计 */
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -164,77 +148,89 @@
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏 | Navigation Bar -->
     <nav>
         <ul>
-            <li><a href="#home">首页</a></li>
-            <li><a href="#about">关于我</a></li>
-            <li><a href="#research">研究</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#contact">联系我</a></li>
+            <li><a href="#home">首页 | Home</a></li>
+            <li><a href="#about">关于我 | About Me</a></li>
+            <li><a href="#research">研究 | Research</a></li>
+            <li><a href="#projects">项目 | Projects</a></li>
+            <li><a href="#contact">联系我 | Contact Me</a></li>
         </ul>
     </nav>
 
-    <!-- 首页 -->
+    <!-- 首页 | Home -->
     <section id="home" class="section">
         <div class="content">
-            <h1>Hi, 我是徐浩钦</h1>
-            <p>计算机科学与技术专业学生 | 专注于深度学习和自然语言处理</p>
-            <a href="#about" class="btn">了解更多</a>
+            <h1>Hi, 我是徐浩钦 | Hi, I’m Xu Haoqin</h1>
+            <p>计算机科学与技术 | Exploring NLP, LLM, VLMs</p>
+            <p>Computer Science and Technology | Exploring NLP, LLM, VLMs</p>
+            <a href="#about" class="btn">了解更多 | Learn More</a>
         </div>
     </section>
 
-	<!-- 关于我 -->
-	<section id="about" class="section">
-    	<h2>关于我</h2>
-    	<p>我是<strong><i>浙江大学</i></strong>计算机科学与技术专业的一名本科生，对技术充满热情，尤其关注深度学习和自然语言处理的研究与应用。</p>
-    	<p><strong>个性特点：</strong>ENTJ,喜欢解决问题，注重细节，乐于与团队合作。</p>
-   	 <p><strong>技能：</strong>Python, PyTorch, Git, C++(CUDA), MindSpore(HUAWEI)</p>
-   	 <p><strong>兴趣：</strong>跑步、科幻小说、技术博客写作</p>
-	</section>
+    <!-- 关于我 | About Me -->
+    <section id="about" class="section">
+        <h2>关于我 | About Me</h2>
+        <p>我是<strong><i>浙江大学</i></strong>计算机科学与技术专业的一名本科生，对技术充满热情，尤其关注NLP,LLM,VLMs研究与应用。</p>
+        <p>I’m an undergraduate student in Computer Science and Technology at <strong><i>Zhejiang University</i></strong>, passionate about technology, especially focused on NLP, LLM, and VLMs research and applications.</p>
+        <p><strong>个性特点：</strong>ENTJ,喜欢解决问题，注重细节，乐于与团队合作。</p>
+        <p><strong>Personality:</strong> ENTJ, enjoys problem-solving, detail-oriented, and loves collaborating with teams.</p>
+        <p><strong>技能：</strong>Python, PyTorch, Git, MindSpore(HUAWEI)</p>
+        <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore (HUAWEI)</p>
+        <p><strong>兴趣：</strong>跑步、科幻小说、技术博客写作</p>
+        <p><strong>Interests:</strong> Running, science fiction novels, technical blog writing</p>
+    </section>
 
-    <!-- 研究 -->
+    <!-- 研究 | Research -->
     <section id="research" class="section">
-        <h2>研究</h2>
+        <h2>研究 | Research</h2>
         <div class="card">
-            <h3>基于BERT的情感分析模型优化 [2024]</h3>
+            <h3>基于BERT的情感分析模型优化 [2024] | Optimization of BERT-based Sentiment Analysis Model [2024]</h3>
             <p>提升模型在小样本数据集上的表现，准确率提升10%。</p>
+            <p>Improved model performance on small-sample datasets, with accuracy increased by 10%.</p>
             <p><strong>技术：</strong>Python, PyTorch, NLP</p>
-            <p><a href="#">论文PDF</a> | <a href="#">代码</a></p>
+            <p><strong>Technologies:</strong> Python, PyTorch, NLP</p>
+            <p><a href="#">论文PDF | Paper PDF</a> | <a href="#">代码 | Code</a></p>
         </div>
         <div class="card">
-            <h3>当前工作：大语言模型推理能力</h3>
+            <h3>当前工作：大语言模型推理能力 | Current Work: Reasoning Abilities of Large Language Models</h3>
             <p>探索如何优化LLM在复杂任务中的推理表现。</p>
+            <p>Exploring how to optimize LLM reasoning performance in complex tasks.</p>
         </div>
     </section>
 
-    <!-- 项目 -->
+    <!-- 项目 | Projects -->
     <section id="projects" class="section">
-        <h2>项目</h2>
+        <h2>项目 | Projects</h2>
         <div class="grid">
             <div class="card">
-                <h3>个人博客系统</h3>
-                <p>基于Django开发的轻量级博客，支持Markdown编辑。</p>
-                <p><strong>技术栈：</strong>Python, Django, PostgreSQL</p>
+                <h3>全代码复现GPT-2 | Fully Reproducing GPT-2 Code</h3>
+                <p>从零开始复现GPT-2模型，包括训练和推理过程。</p>
+                <p>Reproduced the GPT-2 model from scratch, including training and inference processes.</p>
+                <p><strong>技术栈：</strong>Python, PyTorch, Transformers</p>
+                <p><strong>Tech Stack:</strong> Python, PyTorch, Transformers</p>
                 <p><a href="#">GitHub</a></p>
             </div>
             <div class="card">
-                <h3>分布式任务调度器</h3>
-                <p>实现高并发的任务分配系统。</p>
-                <p><strong>技术栈：</strong>Java, Spring Boot, Redis</p>
+                <h3>研究VLMs中的幻觉问题 | Studying Hallucination Issues in VLMs</h3>
+                <p>分析视觉-语言模型中的幻觉现象并尝试提出解决方案。</p>
+                <p>Analyzing hallucination phenomena in vision-language models and attempting to propose solutions.</p>
+                <p><strong>技术栈：</strong>Python, PyTorch, VLMs</p>
+                <p><strong>Tech Stack:</strong> Python, PyTorch, VLMs</p>
                 <p><a href="#">GitHub</a></p>
             </div>
         </div>
     </section>
 
-<!-- 联系我 -->
-<section id="contact" class="section">
-    <h2>联系我</h2>
-    <p>邮箱: haoqin.xu@zju.edu.cn</p>
-    <p>
-        <a href="https://github.com/lemonoscar" target="_blank">GitHub</a> |
-        <a href="#" onclick="alert('我的微信号: xuhaoqin18871000525')">微信</a>
-    </p>
-</section>
+    <!-- 联系我 | Contact Me -->
+    <section id="contact" class="section">
+        <h2>联系我 | Contact Me</h2>
+        <p>邮箱: haoqin.xu@zju.edu.cn</p>
+        <p>Email: haoqin.xu@zju.edu.cn</p>
+        <p>
+            <a href="https://github.com/lemonoscar" target="_blank">GitHub</a>
+        </p>
+    </section>
 </body>
 </html>
