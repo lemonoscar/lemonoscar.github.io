@@ -1,234 +1,178 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>徐浩钦 - 个人网站 | Xu Haoqin - Personal Website</title>
-    <style>
-        /* Same CSS styles as before, unchanged */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #F0F0F0;
-            color: #333;
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-        }
-        a:hover {
-            color: #0056b3;
-        }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #FFFFFF;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
-            z-index: 100;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-        nav ul li a {
-            font-size: 16px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        h1, h2 {
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        h1 { font-size: 36px; }
-        h2 { font-size: 28px; }
-        #home {
-            height: 100vh;
-            background: linear-gradient(135deg, #007BFF, #FFFFFF);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #333;
-        }
-        #home .content {
-            max-width: 600px;
-        }
-        #home h1 {
-            margin-bottom: 10px;
-        }
-        #home p {
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007BFF;
-            color: #FFF;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
-        #about {
-            background: #FFFFFF;
-        }
-        #about p {
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-        #research .card {
-            background: #FFFFFF;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        #research .card:hover {
-            transform: translateY(-5px);
-        }
-        #research h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        #projects .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        #projects .card {
-            background: #FFFFFF;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        #projects .card:hover {
-            transform: translateY(-5px);
-        }
-        #contact {
-            text-align: center;
-        }
-        #contact a {
-            margin: 0 10px;
-            font-size: 18px;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-            #home h1 {
-                font-size: 28px;
-            }
-            #home p {
-                font-size: 16px;
-            }
-            .section {
-                padding: 40px 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oscar Xu — Personal Website</title>
+  <meta name="description" content="Oscar Xu — CS undergrad exploring NLP, LLMs, VLMs, and robot learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --surface: rgba(255,255,255,0.06);
+      --muted-surface: rgba(255,255,255,0.04);
+      --text: #e7ecf3;
+      --text-dim: #a8b3c7;
+      --brand: #5b9cff;
+      --brand-2: #7a5bff;
+      --accent: #68f0c2;
+      --ring: 0 0 0 8px rgba(91,156,255,0.15);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    [data-theme="light"] {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --muted-surface: #f1f4fa;
+      --text: #0c1222;
+      --text-dim: #4a5568;
+      --brand: #2563eb;
+      --brand-2: #7c3aed;
+      --accent: #0891b2;
+      --shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+      --ring: 0 0 0 8px rgba(37, 99, 235, 0.15);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(123, 92, 255, 0.18), transparent 60%),
+                  radial-gradient(1200px 800px at 100% 0%, rgba(75, 148, 255, 0.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.4) blur(10px);
+      background: linear-gradient(180deg, rgba(12,18,34,0.75), rgba(12,18,34,0.35));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    [data-theme="light"] .nav { background: rgba(255,255,255,0.7); }
+    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px; }
+    .brand .dot { width:10px; height:10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: 50%; box-shadow: 0 0 0 6px rgba(123,92,255,0.15); }
+    .nav a { color: var(--text); opacity: .85; font-weight: 600; }
+    .nav-links { display:flex; gap: 22px; align-items:center; }
+
+    .section { max-width: 1120px; padding: 80px 18px; margin: 0 auto; }
+    h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 8px 0 16px; }
+    h2 { font-size: clamp(26px, 3.6vw, 34px); margin: 0 0 18px; }
+    p.lead { font-size: clamp(16px, 2vw, 19px); color: var(--text-dim); max-width: 780px; }
+
+    .hero {
+      display: grid; gap: 28px; justify-items: start;
+      background:
+        radial-gradient(600px 220px at 30% 20%, rgba(104, 240, 194, 0.12), transparent 60%),
+        radial-gradient(800px 260px at 80% 10%, rgba(91, 156, 255, 0.16), transparent 60%);
+      border-radius: 18px; padding: 64px 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    .badges { display:flex; gap: 10px; flex-wrap: wrap; }
+    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: var(--muted-surface); border: 1px solid rgba(255,255,255,0.08); color: var(--text-dim); }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+
+    .timeline { position: relative; padding-left: 22px; }
+    .timeline:before { content:""; position:absolute; left: 6px; top: 4px; bottom: 4px; width:2px; background: linear-gradient(180deg, var(--brand), transparent); opacity:.6; }
+    .t-item { position: relative; margin: 8px 0 18px; }
+    .t-item:before { content:""; position:absolute; left:-17px; top:8px; width:10px; height:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); border-radius:50%; }
+    .t-range { font-weight: 700; color: var(--text); }
+    .t-title { font-weight: 700; margin: 4px 0 4px; }
+    .t-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 8px; }
+    .t-bullets { margin: 8px 0 0; padding-left: 18px; color: var(--text-dim); }
+
+    footer { border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-dim); text-align:center; padding: 40px 0; }
+  </style>
 </head>
 <body>
-    <!-- 导航栏 | Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#home">首页 | Home</a></li>
-            <li><a href="#about">关于我 | About Me</a></li>
-            <li><a href="#research">研究 | Research</a></li>
-            <li><a href="#projects">项目 | Projects</a></li>
-            <li><a href="#contact">联系我 | Contact Me</a></li>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="brand"><span class="dot"></span><span>Oscar Xu</span></a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="section hero">
+    <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent;">Oscar Xu</span>.</h1>
+    <p class="lead">Undergraduate in Computer Science, exploring NLP, LLMs, VLMs, and robot learning — building from first principles and connecting language, vision, and control.</p>
+    <div class="badges">
+      <span class="badge">Python</span>
+      <span class="badge">PyTorch</span>
+      <span class="badge">Git</span>
+      <span class="badge">MindSpore</span>
+      <span class="badge">NLP · LLM · VLM</span>
+      <span class="badge">Robot Learning</span>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p class="lead">I'm a CS undergraduate passionate about machine intelligence. I focus on reasoning in language and vision models, and on reinforcement learning for robotic control.</p>
+    <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore</p>
+    <p><strong>Personality:</strong> ENTJ — analytical, decisive, collaborative</p>
+    <p><strong>Interests:</strong> Running, science fiction, and technical writing</p>
+  </section>
+
+  <section id="research" class="section">
+    <h2>Research</h2>
+    <div class="card timeline">
+      <div class="t-item">
+        <div class="t-range">Jul 2025 – Oct 2025</div>
+        <div class="t-title">Hierarchical & Curriculum RL Framework in Legged Gym</div>
+        <div class="t-sub">Bipedal Humanoid Control — Unitree G1/H1</div>
+        <ul class="t-bullets">
+          <li>Built a reinforcement learning control system for humanoids with a closed perception–planning–control loop.</li>
+          <li>Developed curriculum and hierarchical learning structures for generalization and stability.</li>
+          <li>Improved balance and energy efficiency under complex conditions.</li>
         </ul>
-    </nav>
+      </div>
+      <div class="t-item">
+        <div class="t-range">Jun 2025 – Jul 2025</div>
+        <div class="t-title">Coordination & Adversarial Strategy Learning in SMAC-hard</div>
+        <div class="t-sub">Multi-Agent Reinforcement Learning</div>
+        <ul class="t-bullets">
+          <li>Constructed self-play training for robust cooperative and competitive behaviors.</li>
+          <li>Enhanced credit assignment and stability using QMIX and PPO hybrids.</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-range">Apr 2025 – Jun 2025</div>
+        <div class="t-title">Instruction Tuning of MiniGPT-4 for Vision-Language Understanding</div>
+        <ul class="t-bullets">
+          <li>Fine-tuned MiniGPT-4 for embodied perception tasks and VQA.</li>
+          <li>Improved semantic consistency and cross-modal alignment through instruction design.</li>
+        </ul>
+      </div>
+      <div class="t-item">
+        <div class="t-range">2024</div>
+        <div class="t-title">Optimizing a BERT-based Sentiment Analysis Model</div>
+        <ul class="t-bullets"><li>Improved small-sample performance by 10% using efficient fine-tuning.</li></ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- 首页 | Home -->
-    <section id="home" class="section">
-        <div class="content">
-            <h1>Hi, 我是徐浩钦 | Hi, I’m Xu Haoqin</h1>
-            <p>Computer Science and Technology | Exploring NLP, LLM, VLMs</p>
-            <a href="#about" class="btn">了解更多 | Learn More</a>
-        </div>
-    </section>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:oscarxu1887@gmail.com">oscarxu1887@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/lemonoscar" target="_blank">lemonoscar</a></p>
+  </section>
 
-    <!-- 关于我 | About Me -->
-    <section id="about" class="section">
-        <h2>关于我 | About Me</h2>
-        <p>我是<strong><i>浙江大学</i></strong>计算机科学与技术专业的一名本科生，对技术充满热情，尤其关注NLP,LLM,VLMs研究与应用。</p>
-        <p>I'm an undergraduate student in Computer Science and Technology at <strong><i>Zhejiang University</i></strong>, passionate about technology, especially focused on NLP, LLM, and VLMs research and applications.</p>
-        <p><strong>个性特点：</strong>ENTJ,喜欢解决问题，注重细节，乐于与团队合作。</p>
-        <p><strong>Personality:</strong> ENTJ, enjoys problem-solving, detail-oriented, and loves collaborating with teams.</p>
-        <p><strong>技能：</strong>Python, PyTorch, Git, MindSpore(HUAWEI)</p>
-        <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore (HUAWEI)</p>
-        <p><strong>兴趣：</strong>跑步、科幻小说、技术博客写作</p>
-        <p><strong>Interests:</strong> Running, science fiction novels, technical blog writing</p>
-    </section>
+  <footer>
+    © <span id="year"></span> Oscar Xu
+  </footer>
 
-    <!-- 研究 | Research -->
-    <section id="research" class="section">
-        <h2>研究 | Research</h2>
-        <div class="card">
-            <h3>基于BERT的情感分析模型优化 | Optimization of BERT-based Sentiment Analysis Model [2024]</h3>
-            <p>提升模型在小样本数据集上的表现，准确率提升10%。</p>
-            <p>Improved model performance on small-sample datasets, with accuracy increased by 10%.</p>
-            <p><strong>技术：</strong>Python, PyTorch, NLP</p>
-            <p><strong>Technologies:</strong> Python, PyTorch, NLP</p>
-        </div>
-        <div class="card">
-            <h3>当前工作：大语言模型推理能力 | Current Work: Reasoning Abilities of Large Language Models</h3>
-            <p>探索如何优化LLM在复杂任务中的推理表现。</p>
-            <p>Exploring how to optimize LLM reasoning performance in complex tasks.</p>
-        </div>
-    </section>
-
-    <!-- 项目 | Projects -->
-    <section id="projects" class="section">
-        <h2>项目 | Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>全代码复现GPT-2 | Fully Reproducing GPT-2 Code</h3>
-                <p>从零开始复现GPT-2模型，包括训练和推理过程。</p>
-                <p>Reproduced the GPT-2 model from scratch, including training and inference processes.</p>
-                <p><strong>技术栈：</strong>Python, PyTorch, Transformers</p>
-                <p><strong>Tech Stack:</strong> Python, PyTorch, Transformers</p>
-                <p><a href="#">GitHub</a></p>
-            </div>
-            <div class="card">
-                <h3>研究VLMs中的幻觉问题 | Studying Hallucination Issues in VLMs</h3>
-                <p>分析视觉-语言模型中的幻觉现象并尝试提出解决方案。</p>
-                <p>Analyzing hallucination phenomena in vision-language models and attempting to propose solutions.</p>
-                <p><strong>技术栈：</strong>Python, PyTorch, VLMs</p>
-                <p><strong>Tech Stack:</strong> Python, PyTorch, VLMs</p>
-                <p><a href="#">GitHub</a></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系我 | Contact Me -->
-    <section id="contact" class="section">
-        <h2>联系我 | Contact Me</h2>
-        <p>邮箱: haoqin.xu@zju.edu.cn</p>
-        <p>Email: haoqin.xu@zju.edu.cn</p>
-        <p>
-            <a href="https://github.com/lemonoscar" target="_blank">GitHub</a>
-        </p>
-    </section>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
