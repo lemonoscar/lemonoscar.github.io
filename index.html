@@ -1,178 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oscar Xu — Personal Website</title>
-  <meta name="description" content="Oscar Xu — CS undergrad exploring NLP, LLMs, VLMs, and robot learning." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Xu - Personal Website</title>
+  <meta name="description" content="Oscar Xu — Undergraduate in Computer Science focusing on LLMs, VLMs, 3D-LLM, and robot learning.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/lemonoscar/lemonoscar/main/favicon.png" type="image/png">
+
+  <!-- Fonts (highly academic) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0b1020;
-      --surface: rgba(255,255,255,0.06);
-      --muted-surface: rgba(255,255,255,0.04);
-      --text: #e7ecf3;
-      --text-dim: #a8b3c7;
-      --brand: #5b9cff;
-      --brand-2: #7a5bff;
-      --accent: #68f0c2;
-      --ring: 0 0 0 8px rgba(91,156,255,0.15);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --bg: #fafafa;
+      --text: #111;
+      --text-dim: #555;
+      --card: #ffffff;
+      --border: #e0e0e0;
+      --link: #0b57d0;
+      --max-width: 880px;
     }
-    [data-theme="light"] {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --muted-surface: #f1f4fa;
-      --text: #0c1222;
-      --text-dim: #4a5568;
-      --brand: #2563eb;
-      --brand-2: #7c3aed;
-      --accent: #0891b2;
-      --shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
-      --ring: 0 0 0 8px rgba(37, 99, 235, 0.15);
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --text: #e6edf3;
+        --text-dim: #9aa4b3;
+        --card: #161b22;
+        --border: #30363d;
+        --link: #6da5ff;
+      }
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 20% 0%, rgba(123, 92, 255, 0.18), transparent 60%),
-                  radial-gradient(1200px 800px at 100% 0%, rgba(75, 148, 255, 0.18), transparent 55%),
-                  var(--bg);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.58;
     }
-    a { color: var(--brand); text-decoration: none; }
+
+    a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(1.4) blur(10px);
-      background: linear-gradient(180deg, rgba(12,18,34,0.75), rgba(12,18,34,0.35));
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 20px 80px;
     }
-    [data-theme="light"] .nav { background: rgba(255,255,255,0.7); }
-    .nav-inner { max-width: 1120px; margin: 0 auto; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px; }
-    .brand .dot { width:10px; height:10px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: 50%; box-shadow: 0 0 0 6px rgba(123,92,255,0.15); }
-    .nav a { color: var(--text); opacity: .85; font-weight: 600; }
-    .nav-links { display:flex; gap: 22px; align-items:center; }
 
-    .section { max-width: 1120px; padding: 80px 18px; margin: 0 auto; }
-    h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 8px 0 16px; }
-    h2 { font-size: clamp(26px, 3.6vw, 34px); margin: 0 0 18px; }
-    p.lead { font-size: clamp(16px, 2vw, 19px); color: var(--text-dim); max-width: 780px; }
-
-    .hero {
-      display: grid; gap: 28px; justify-items: start;
-      background:
-        radial-gradient(600px 220px at 30% 20%, rgba(104, 240, 194, 0.12), transparent 60%),
-        radial-gradient(800px 260px at 80% 10%, rgba(91, 156, 255, 0.16), transparent 60%);
-      border-radius: 18px; padding: 64px 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
     }
-    .badges { display:flex; gap: 10px; flex-wrap: wrap; }
-    .badge { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: var(--muted-surface); border: 1px solid rgba(255,255,255,0.08); color: var(--text-dim); }
 
-    .card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+    nav a {
+      margin-left: 24px;
+      font-weight: 500;
+    }
 
-    .timeline { position: relative; padding-left: 22px; }
-    .timeline:before { content:""; position:absolute; left: 6px; top: 4px; bottom: 4px; width:2px; background: linear-gradient(180deg, var(--brand), transparent); opacity:.6; }
-    .t-item { position: relative; margin: 8px 0 18px; }
-    .t-item:before { content:""; position:absolute; left:-17px; top:8px; width:10px; height:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); border-radius:50%; }
-    .t-range { font-weight: 700; color: var(--text); }
-    .t-title { font-weight: 700; margin: 4px 0 4px; }
-    .t-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 8px; }
-    .t-bullets { margin: 8px 0 0; padding-left: 18px; color: var(--text-dim); }
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-family: "IBM Plex Serif", serif;
+    }
 
-    footer { border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-dim); text-align:center; padding: 40px 0; }
+    h2 {
+      font-size: 26px;
+      font-weight: 600;
+      margin-top: 60px;
+      margin-bottom: 12px;
+      font-family: "IBM Plex Serif", serif;
+    }
+
+    p.lead {
+      font-size: 18px;
+      color: var(--text-dim);
+      max-width: 650px;
+    }
+
+    .section { margin-top: 40px; }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+
+    .t-item {
+      margin-bottom: 28px;
+    }
+
+    .t-range {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .t-title {
+      font-weight: 600;
+      margin: 4px 0;
+      font-size: 18px;
+    }
+
+    .t-sub {
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    ul { margin-top: 8px; }
+
+    footer {
+      text-align: center;
+      margin-top: 80px;
+      padding: 40px 0;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+    }
   </style>
 </head>
+
 <body>
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#home" class="brand"><span class="dot"></span><span>Oscar Xu</span></a>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section id="home" class="section hero">
-    <h1>Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent;">Oscar Xu</span>.</h1>
-    <p class="lead">Undergraduate in Computer Science, exploring NLP, LLMs, VLMs, and robot learning — building from first principles and connecting language, vision, and control.</p>
-    <div class="badges">
-      <span class="badge">Python</span>
-      <span class="badge">PyTorch</span>
-      <span class="badge">Git</span>
-      <span class="badge">MindSpore</span>
-      <span class="badge">NLP · LLM · VLM</span>
-      <span class="badge">Robot Learning</span>
-    </div>
+<header>
+  <div style="font-weight:700; font-size:18px;">Oscar Xu</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+
+  <!-- Home -->
+  <section id="home">
+    <h1>Oscar Xu</h1>
+    <p class="lead">
+      Undergraduate in Computer Science. Interested in LLMs, VLMs, 3D-LLMs, and robot learning.  
+      Working on geometry-aware contrastive decoding for 3D models and reinforcement learning for humanoid control.
+    </p>
   </section>
 
+  <!-- About -->
   <section id="about" class="section">
-    <h2>About Me</h2>
-    <p class="lead">I'm a CS undergraduate passionate about machine intelligence. I focus on reasoning in language and vision models, and on reinforcement learning for robotic control.</p>
+    <h2>About</h2>
+    <p>
+      I am an undergraduate student in Computer Science focusing on machine intelligence, multimodal foundation models,
+      and embodied AI. My current research explores how 3D-LLMs can achieve more accurate geometric reasoning through
+      contrastive decoding and how robots can leverage these models for reliable perception and control.
+    </p>
     <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore</p>
-    <p><strong>Personality:</strong> ENTJ — analytical, decisive, collaborative</p>
-    <p><strong>Interests:</strong> Running, science fiction, and technical writing</p>
+    <p><strong>Interests:</strong> Multimodal models, robotics, RL, technical writing</p>
   </section>
 
+  <!-- Research -->
   <section id="research" class="section">
     <h2>Research</h2>
-    <div class="card timeline">
+
+    <div class="timeline">
+
+      <div class="t-item">
+        <div class="t-range">Apr 2025 – Present</div>
+        <div class="t-title">3D-LLM Contrastive Decoding for Geometry-Aware Reasoning</div>
+        <div class="t-sub">3D Multimodal Models · Hallucination Reduction</div>
+        <ul>
+          <li>Developing a geometry-aware contrastive decoding pipeline for 3D-LLMs (PointLLM / PointBERT).</li>
+          <li>Designed 3D hallucination benchmarks: missing-object, geometric inconsistency, wrong-location.</li>
+          <li>Built entropy scaling & anti-model contrastive decoding modules.</li>
+          <li>Preparing full demo and ablation studies for publication.</li>
+        </ul>
+      </div>
+
       <div class="t-item">
         <div class="t-range">Jul 2025 – Oct 2025</div>
-        <div class="t-title">Hierarchical & Curriculum RL Framework in Legged Gym</div>
-        <div class="t-sub">Bipedal Humanoid Control — Unitree G1/H1</div>
-        <ul class="t-bullets">
-          <li>Built a reinforcement learning control system for humanoids with a closed perception–planning–control loop.</li>
-          <li>Developed curriculum and hierarchical learning structures for generalization and stability.</li>
-          <li>Improved balance and energy efficiency under complex conditions.</li>
+        <div class="t-title">Hierarchical & Curriculum RL in Legged Gym</div>
+        <div class="t-sub">Humanoid Control — Unitree G1/H1</div>
+        <ul>
+          <li>Implemented a hierarchical RL control system in Legged Gym for humanoid locomotion.</li>
+          <li>Developed curriculum strategies for stability and generalization.</li>
         </ul>
       </div>
+
       <div class="t-item">
         <div class="t-range">Jun 2025 – Jul 2025</div>
-        <div class="t-title">Coordination & Adversarial Strategy Learning in SMAC-hard</div>
-        <div class="t-sub">Multi-Agent Reinforcement Learning</div>
-        <ul class="t-bullets">
-          <li>Constructed self-play training for robust cooperative and competitive behaviors.</li>
-          <li>Enhanced credit assignment and stability using QMIX and PPO hybrids.</li>
+        <div class="t-title">Adversarial Coordination Learning in SMAC-hard</div>
+        <div class="t-sub">Multi-Agent RL</div>
+        <ul>
+          <li>Constructed self-play and cooperative-competitive MARL training pipelines.</li>
+          <li>Enhanced credit assignment using QMIX–PPO hybrid methods.</li>
         </ul>
       </div>
+
       <div class="t-item">
         <div class="t-range">Apr 2025 – Jun 2025</div>
-        <div class="t-title">Instruction Tuning of MiniGPT-4 for Vision-Language Understanding</div>
-        <ul class="t-bullets">
-          <li>Fine-tuned MiniGPT-4 for embodied perception tasks and VQA.</li>
-          <li>Improved semantic consistency and cross-modal alignment through instruction design.</li>
+        <div class="t-title">Instruction Tuning of MiniGPT-4</div>
+        <ul>
+          <li>Fine-tuned MiniGPT-4 for VQA and embodied perception tasks.</li>
+          <li>Improved cross-modal alignment through instruction design.</li>
         </ul>
       </div>
+
       <div class="t-item">
         <div class="t-range">2024</div>
-        <div class="t-title">Optimizing a BERT-based Sentiment Analysis Model</div>
-        <ul class="t-bullets"><li>Improved small-sample performance by 10% using efficient fine-tuning.</li></ul>
+        <div class="t-title">Optimizing a BERT-based Sentiment Model</div>
+        <ul>
+          <li>Achieved a 10% improvement under small-sample settings.</li>
+        </ul>
       </div>
+
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:oscarxu1887@gmail.com">oscarxu1887@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/lemonoscar" target="_blank">lemonoscar</a></p>
+    <p>GitHub: <a href="https://github.com/lemonoscar">lemonoscar</a></p>
   </section>
+</div>
 
-  <footer>
-    © <span id="year"></span> Oscar Xu
-  </footer>
+<footer>
+  © <span id="year"></span> Oscar Xu
+</footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
