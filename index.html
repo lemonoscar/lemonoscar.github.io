@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oscar Xu - Personal Website</title>
-  <meta name="description" content="Oscar Xu — Undergraduate in Computer Science focusing on LLMs, VLMs, 3D-LLM, and robot learning.">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="https://raw.githubusercontent.com/lemonoscar/lemonoscar/main/favicon.png" type="image/png">
+  <meta name="description" content="Oscar Xu — Undergraduate in CS focusing on LLMs, VLMs, 3D-LLM, and robot learning.">
 
-  <!-- Fonts (highly academic) -->
+  <!-- Favicon -->
+  <img class="avatar" src="https://raw.githubusercontent.com/lemonoscar/lemonoscar.github.io/main/avatar.png" alt="avatar">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
@@ -87,7 +87,7 @@
     p.lead {
       font-size: 18px;
       color: var(--text-dim);
-      max-width: 650px;
+      max-width: 700px;
     }
 
     .section { margin-top: 40px; }
@@ -98,28 +98,21 @@
       margin-top: 20px;
     }
 
-    .t-item {
-      margin-bottom: 28px;
-    }
+    .t-item { margin-bottom: 28px; }
+    .t-range { font-weight: 600; }
+    .t-title { font-weight: 600; font-size: 18px; margin: 4px 0; }
+    .t-sub { font-size: 14px; color: var(--text-dim); margin-bottom: 6px; }
 
-    .t-range {
-      font-weight: 600;
-      color: var(--text);
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      float: right;
+      margin-left: 28px;
+      margin-bottom: 10px;
     }
-
-    .t-title {
-      font-weight: 600;
-      margin: 4px 0;
-      font-size: 18px;
-    }
-
-    .t-sub {
-      color: var(--text-dim);
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
-
-    ul { margin-top: 8px; }
 
     footer {
       text-align: center;
@@ -147,10 +140,11 @@
 
   <!-- Home -->
   <section id="home">
+    <img class="avatar" src="https://raw.githubusercontent.com/lemonoscar/lemonoscar/main/avatar.png" alt="avatar">
     <h1>Oscar Xu</h1>
+
     <p class="lead">
-      Undergraduate in Computer Science. Interested in LLMs, VLMs, 3D-LLMs, and robot learning.  
-      Working on geometry-aware contrastive decoding for 3D models and reinforcement learning for humanoid control.
+      Undergraduate in Computer Science. My work spans vision–language models, 3D-LLMs, multimodal alignment, and reinforcement learning for embodied agents. Currently exploring geometry-aware contrastive decoding for large-scale 3D models.
     </p>
   </section>
 
@@ -158,12 +152,18 @@
   <section id="about" class="section">
     <h2>About</h2>
     <p>
-      I am an undergraduate student in Computer Science focusing on machine intelligence, multimodal foundation models,
-      and embodied AI. My current research explores how 3D-LLMs can achieve more accurate geometric reasoning through
-      contrastive decoding and how robots can leverage these models for reliable perception and control.
+      I am a CS undergraduate with broad interests in multimodal foundation models, geometric reasoning, and embodied AI. 
+      My recent work focuses on pushing 3D-LLMs toward more reliable, geometry-grounded perception through contrastive decoding. 
+      I am also interested in the intersection of RL and VLM/VLA systems, especially how robots can integrate language, 3D vision, and action.
     </p>
-    <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore</p>
-    <p><strong>Interests:</strong> Multimodal models, robotics, RL, technical writing</p>
+
+    <p>
+      Beyond technical work, I enjoy running, science fiction, and writing about research ideas in clear and structured forms. 
+      I value rigor, clarity, and building systems that combine theoretical soundness with real-world usability.
+    </p>
+
+    <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore, RL frameworks</p>
+    <p><strong>Research Interests:</strong> 3D-LLMs, VLM/VLA, geometric reasoning, RL, embodied agents</p>
   </section>
 
   <!-- Research -->
