@@ -6,9 +6,6 @@
   <title>Oscar Xu - Personal Website</title>
   <meta name="description" content="Oscar Xu — Undergraduate in CS focusing on LLMs, VLMs, 3D-LLM, and robot learning.">
 
-  <!-- Favicon -->
-  <img class="avatar" src="avater.png" alt="avatar">
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,17 +16,16 @@
       --bg: #fafafa;
       --text: #111;
       --text-dim: #555;
-      --card: #ffffff;
       --border: #e0e0e0;
       --link: #0b57d0;
       --max-width: 880px;
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0d1117;
         --text: #e6edf3;
         --text-dim: #9aa4b3;
-        --card: #161b22;
         --border: #30363d;
         --link: #6da5ff;
       }
@@ -87,10 +83,17 @@
     p.lead {
       font-size: 18px;
       color: var(--text-dim);
-      max-width: 700px;
+      max-width: 650px;
     }
 
-    .section { margin-top: 40px; }
+    .avatar {
+      width: 240px;
+      height: auto;
+      float: right;
+      margin-left: 40px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
 
     .timeline {
       border-left: 2px solid var(--border);
@@ -102,17 +105,6 @@
     .t-range { font-weight: 600; }
     .t-title { font-weight: 600; font-size: 18px; margin: 4px 0; }
     .t-sub { font-size: 14px; color: var(--text-dim); margin-bottom: 6px; }
-
-    .avatar {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-      float: right;
-      margin-left: 28px;
-      margin-bottom: 10px;
-    }
 
     footer {
       text-align: center;
@@ -140,11 +132,13 @@
 
   <!-- Home -->
   <section id="home">
-    <img class="avatar" src="https://raw.githubusercontent.com/lemonoscar/lemonoscar/main/avatar.png" alt="avatar">
-    <h1>Oscar Xu</h1>
+    <img class="avatar" src="avater.png" alt="avatar">
 
+    <h1>Oscar Xu</h1>
     <p class="lead">
-      Undergraduate in Computer Science. My work spans vision–language models, 3D-LLMs, multimodal alignment, and reinforcement learning for embodied agents. Currently exploring geometry-aware contrastive decoding for large-scale 3D models.
+      Undergraduate in Computer Science. My work spans vision–language models,
+      3D-LLMs, multimodal alignment, and reinforcement learning for embodied agents.
+      Currently exploring geometry-aware contrastive decoding for large-scale 3D models.
     </p>
   </section>
 
@@ -158,12 +152,12 @@
     </p>
 
     <p>
-      Beyond technical work, I enjoy running, science fiction, and writing about research ideas in clear and structured forms. 
+      Beyond technical work, I enjoy basketball, running, science fiction, and writing about research ideas in clear and structured forms. 
       I value rigor, clarity, and building systems that combine theoretical soundness with real-world usability.
     </p>
 
-    <p><strong>Skills:</strong> Python, PyTorch, Git, MindSpore, RL frameworks</p>
-    <p><strong>Research Interests:</strong> 3D-LLMs, VLM/VLA, geometric reasoning, RL, embodied agents</p>
+    <p><strong>Skills:</strong> Python, PyTorch, RL frameworks, Cpp, GoLang</p>
+    <p><strong>Research Interests:</strong> 3D-LLMs, VLM/VLA, geometric reasoning, RL</p>
   </section>
 
   <!-- Research -->
@@ -177,30 +171,30 @@
         <div class="t-title">3D-LLM Contrastive Decoding for Geometry-Aware Reasoning</div>
         <div class="t-sub">3D Multimodal Models · Hallucination Reduction</div>
         <ul>
-          <li>Developing a geometry-aware contrastive decoding pipeline for 3D-LLMs (PointLLM / PointBERT).</li>
-          <li>Designed 3D hallucination benchmarks: missing-object, geometric inconsistency, wrong-location.</li>
-          <li>Built entropy scaling & anti-model contrastive decoding modules.</li>
-          <li>Preparing full demo and ablation studies for publication.</li>
+          <li>Developing a geometry-aware contrastive decoding pipeline for 3D-LLMs.</li>
+          <li>Designed benchmarks for geometric hallucination in point-cloud models.</li>
+          <li>Built entropy-based scaling and anti-model scoring modules.</li>
+          <li>Preparing full demo & ablations for publication.</li>
         </ul>
       </div>
 
       <div class="t-item">
         <div class="t-range">Jul 2025 – Oct 2025</div>
         <div class="t-title">Hierarchical & Curriculum RL in Legged Gym</div>
-        <div class="t-sub">Humanoid Control — Unitree G1/H1</div>
+        <div class="t-sub">Humanoid Locomotion — Unitree G1/H1</div>
         <ul>
-          <li>Implemented a hierarchical RL control system in Legged Gym for humanoid locomotion.</li>
-          <li>Developed curriculum strategies for stability and generalization.</li>
+          <li>Implemented hierarchical RL control pipeline in simulation.</li>
+          <li>Designed curriculum strategies for robust locomotion.</li>
         </ul>
       </div>
 
       <div class="t-item">
         <div class="t-range">Jun 2025 – Jul 2025</div>
         <div class="t-title">Adversarial Coordination Learning in SMAC-hard</div>
-        <div class="t-sub">Multi-Agent RL</div>
+        <div class="t-sub">Multi-Agent Reinforcement Learning</div>
         <ul>
-          <li>Constructed self-play and cooperative-competitive MARL training pipelines.</li>
-          <li>Enhanced credit assignment using QMIX–PPO hybrid methods.</li>
+          <li>Constructed self-play training for cooperative/competitive MARL.</li>
+          <li>Enhanced credit assignment using hybrid QMIX + PPO learning.</li>
         </ul>
       </div>
 
@@ -209,15 +203,7 @@
         <div class="t-title">Instruction Tuning of MiniGPT-4</div>
         <ul>
           <li>Fine-tuned MiniGPT-4 for VQA and embodied perception tasks.</li>
-          <li>Improved cross-modal alignment through instruction design.</li>
-        </ul>
-      </div>
-
-      <div class="t-item">
-        <div class="t-range">2024</div>
-        <div class="t-title">Optimizing a BERT-based Sentiment Model</div>
-        <ul>
-          <li>Achieved a 10% improvement under small-sample settings.</li>
+          <li>Improved cross-modal alignment through curated instruction sets.</li>
         </ul>
       </div>
 
@@ -230,6 +216,7 @@
     <p>Email: <a href="mailto:oscarxu1887@gmail.com">oscarxu1887@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/lemonoscar">lemonoscar</a></p>
   </section>
+
 </div>
 
 <footer>
