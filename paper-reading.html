@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Hsu | Paper Reading</title>
+    <meta
+        name="description"
+        content="Paper reading library for Oscar Hsu, organized into reinforcement learning, VLA, world models, and misc."
+    >
+    <link rel="stylesheet" href="paper-reading.css">
+</head>
+<body data-page="overview">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="site-name">
+                <strong>Oscar Hsu</strong>
+                <span>Paper Reading Library</span>
+            </div>
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="paper-reading.html" data-category="overview">Overview</a>
+                <a href="paper-reading-reinforcement-learning.html" data-category="reinforcement-learning">Reinforcement Learning</a>
+                <a href="paper-reading-vla.html" data-category="vla">VLA</a>
+                <a href="paper-reading-worldmodel.html" data-category="worldmodel">World Models</a>
+                <a href="paper-reading-misc.html" data-category="misc">Misc</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site">
+        <section class="page-hero grid">
+            <div>
+                <span class="eyebrow">Paper Reading</span>
+                <h1>Paper reading, organized into four shelves.</h1>
+                <p class="lead">
+                    Reinforcement Learning, VLA, World Models, and Misc are separated into
+                    dedicated reading sections, with every article sorted by when it first
+                    appeared in the archive.
+                </p>
+                <p class="hero-note">
+                    The reading view keeps only paper titles, cleaned notes, and localized figures
+                    from the repository.
+                </p>
+            </div>
+
+            <aside class="summary-panel">
+                <div class="summary-grid">
+                    <article class="stat-card">
+                        <strong id="stat-total">0</strong>
+                        <span>Total article notes extracted from the archive.</span>
+                    </article>
+                    <article class="stat-card">
+                        <strong id="stat-images">0</strong>
+                        <span>Localized figures served from <code>paper/png</code>.</span>
+                    </article>
+                    <article class="stat-card">
+                        <strong id="stat-shelves">0</strong>
+                        <span>Standalone category pages built for direct reading.</span>
+                    </article>
+                    <article class="stat-card">
+                        <strong>4</strong>
+                        <span>Reading paths: RL, VLA, world models, and misc.</span>
+                    </article>
+                </div>
+                <p class="summary-copy">
+                    Use this page as the entry point, then move into a category page where the notes
+                    are already laid out in chronological reading order.
+                </p>
+            </aside>
+        </section>
+
+        <div class="page-tabs" id="pageTabs"></div>
+        <section class="overview-grid" id="overviewGrid"></section>
+    </main>
+
+    <footer class="site footer">
+        Paper Reading library for GitHub Pages. Category pages render the cleaned note content directly from <code>paper/articles</code>.
+    </footer>
+
+    <script src="paper-reading-data.js"></script>
+    <script src="paper-reading-content.js"></script>
+    <script src="paper-reading-venues.js"></script>
+    <script src="paper-reading-math.js"></script>
+    <script src="paper-reading.js"></script>
+</body>
+</html>
