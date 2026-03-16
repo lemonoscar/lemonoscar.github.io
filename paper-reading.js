@@ -537,6 +537,122 @@
         }
     }
 
+    function setupCategoryScrollSync(tocList, notesColumn) {
+        const tocPanel = tocList.closest(".toc");
+        const tocItems = Array.from(tocList.querySelectorAll(".toc-item"));
+        const noteCards = Array.from(notesColumn.querySelectorAll(".note-card"));
+        if (!tocPanel || !tocItems.length || !noteCards.length) {
+            return;
+        }
+
+        const tocItemsById = new Map(
+            tocItems.map((item) => [item.getAttribute("href").replace(/^#/, ""), item])
+        );
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const activationOffset = 148;
+        let activeId = "";
+        let rafId = 0;
+
+        function revealActiveItem(item) {
+            if (tocList.scrollHeight <= tocList.clientHeight) {
+                return;
+            }
+
+            const listRect = tocList.getBoundingClientRect();
+            const itemRect = item.getBoundingClientRect();
+            const padding = 12;
+            const isVisible =
+                itemRect.top >= listRect.top + padding && itemRect.bottom <= listRect.bottom - padding;
+
+            if (isVisible) {
+                return;
+            }
+
+            const targetTop =
+                tocList.scrollTop +
+                (itemRect.top - listRect.top) -
+                (listRect.height / 2 - itemRect.height / 2);
+
+            tocList.scrollTo({
+                top: Math.max(0, targetTop),
+                behavior: reducedMotion.matches ? "auto" : "smooth"
+            });
+        }
+
+        function setActiveItem(id, shouldReveal = true) {
+            const nextItem = tocItemsById.get(id);
+            if (!nextItem) {
+                return;
+            }
+
+            if (activeId === id) {
+                if (shouldReveal) {
+                    revealActiveItem(nextItem);
+                }
+                return;
+            }
+
+            activeId = id;
+            tocItems.forEach((item) => {
+                const isActive = item === nextItem;
+                item.classList.toggle("is-active", isActive);
+                if (isActive) {
+                    item.setAttribute("aria-current", "location");
+                } else {
+                    item.removeAttribute("aria-current");
+                }
+            });
+
+            if (shouldReveal) {
+                revealActiveItem(nextItem);
+            }
+        }
+
+        function getActiveNoteId() {
+            let currentId = noteCards[0].id;
+
+            for (const noteCard of noteCards) {
+                if (noteCard.getBoundingClientRect().top <= activationOffset) {
+                    currentId = noteCard.id;
+                } else {
+                    break;
+                }
+            }
+
+            return currentId;
+        }
+
+        function syncFromScroll() {
+            rafId = 0;
+            setActiveItem(getActiveNoteId());
+        }
+
+        function scheduleSync() {
+            if (rafId) {
+                return;
+            }
+            rafId = window.requestAnimationFrame(syncFromScroll);
+        }
+
+        tocItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                const id = item.getAttribute("href").replace(/^#/, "");
+                setActiveItem(id);
+            });
+        });
+
+        window.addEventListener("scroll", scheduleSync, { passive: true });
+        window.addEventListener("resize", scheduleSync);
+        window.addEventListener("hashchange", scheduleSync);
+
+        if ("ResizeObserver" in window) {
+            const resizeObserver = new ResizeObserver(scheduleSync);
+            noteCards.forEach((noteCard) => resizeObserver.observe(noteCard));
+        }
+
+        scheduleSync();
+    }
+
     function renderCategoryPage(categoryKey) {
         const category = DATA.categories[categoryKey];
         if (!category) {
@@ -556,6 +672,11 @@
         const notes = document.getElementById("notesColumn");
         if (!toc || !notes) {
             return;
+        }
+
+        const tocPanel = toc.closest(".toc");
+        if (tocPanel) {
+            tocPanel.dataset.accent = category.accent;
         }
 
         toc.innerHTML = articles
@@ -595,6 +716,8 @@
                 `;
             })
             .join("");
+
+        setupCategoryScrollSync(toc, notes);
 
         notes.querySelectorAll(".note-body").forEach((mount) => {
             const article = articles.find((item) => item.file === mount.dataset.file);

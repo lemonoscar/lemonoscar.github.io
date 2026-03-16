@@ -88,7 +88,7 @@ window.PAPER_READING_VENUES = {
         url: "https://proceedings.mlr.press/v229/zitkovich23a.html"
     },
     "paper/articles/reconvla.md": {
-        label: "arXiv",
+        label: "AAAI 2026 Outstanding Paper",
         url: "https://arxiv.org/abs/2508.10333"
     },
     "paper/articles/vla-review.md": {
@@ -116,7 +116,7 @@ window.PAPER_READING_VENUES = {
         url: "https://www.nature.com/articles/s41586-025-08744-2"
     },
     "paper/articles/odyssey.md": {
-        label: "arXiv",
+        label: "AAAI 2026 Oral",
         url: "https://arxiv.org/abs/2508.08240"
     },
     "paper/articles/wmpo.md": {

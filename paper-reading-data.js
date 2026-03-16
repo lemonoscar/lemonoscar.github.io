@@ -57,6 +57,7 @@ window.PAPER_READING_DATA = {
         { title: "QUAR-VLA: Vision-Language-Action Model for Quadruped Robots", file: "paper/articles/quar-vla.md", category: "vla" },
         { title: "RT-1: Robotics Transformer for Real-World Control at Scale", file: "paper/articles/rt-1.md", category: "vla" },
         { title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control", file: "paper/articles/rt-2.md", category: "vla" },
+        { title: "ODYSSEY: Open-World Quadrupeds Exploration and Manipulation for Long-Horizon Tasks", file: "paper/articles/odyssey.md", category: "vla" },
         { title: "ReconVLA: Reconstructive Vision-Language-Action Model as Effective Robot Perceiver", file: "paper/articles/reconvla.md", category: "vla" },
         { title: "Vision-Language-Action Models for Robotics: A Review Towards Real-World Applications", file: "paper/articles/vla-review.md", category: "vla" },
         { title: "VLABench: A Large-Scale Benchmark for Language-Conditioned Robotics Manipulation with Long-Horizon Reasoning Tasks", file: "paper/articles/vlabench.md", category: "vla" },
@@ -65,7 +66,6 @@ window.PAPER_READING_DATA = {
         { title: "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots", file: "paper/articles/gr00t-n1.md", category: "worldmodel" },
         { title: "Learning Latent Dynamics for Planning from Pixels", file: "paper/articles/learning-latent-dynamics.md", category: "worldmodel" },
         { title: "Mastering Diverse Domains through World Models", file: "paper/articles/mastering-diverse-domains.md", category: "worldmodel" },
-        { title: "ODYSSEY: Open-World Quadrupeds Exploration and Manipulation for Long-Horizon Tasks", file: "paper/articles/odyssey.md", category: "worldmodel" },
         { title: "WMPO: World Model-based Policy Optimization for Vision-Language-Action Models", file: "paper/articles/wmpo.md", category: "worldmodel" },
 
         { title: "ARIO (All Robots in One)", file: "paper/articles/ario-all-robots-in-one.md", category: "misc" },

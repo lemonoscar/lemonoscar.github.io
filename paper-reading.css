@@ -315,7 +315,10 @@ h1 {
 .toc {
     position: sticky;
     top: 92px;
+    display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr);
     padding: 20px;
+    max-height: calc(100vh - 112px);
     border-radius: 26px;
     border: 1px solid rgba(135, 148, 161, 0.16);
     background: rgba(255, 253, 250, 0.84);
@@ -336,6 +339,10 @@ h1 {
 .toc-list {
     display: grid;
     gap: 10px;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 6px;
+    scroll-behavior: smooth;
 }
 
 .toc-item {
@@ -345,10 +352,42 @@ h1 {
     background: rgba(246, 244, 238, 0.76);
     color: #33404b;
     line-height: 1.55;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .toc-item:hover {
     background: rgba(31, 78, 121, 0.08);
+}
+
+.toc-item.is-active {
+    color: white;
+    background: var(--brand);
+    transform: translateX(4px);
+    box-shadow: 0 12px 24px rgba(31, 78, 121, 0.18);
+}
+
+.toc[data-accent="rl"] .toc-item.is-active {
+    background: var(--rl);
+    box-shadow: 0 12px 24px rgba(178, 96, 57, 0.2);
+}
+
+.toc[data-accent="vla"] .toc-item.is-active {
+    background: var(--vla);
+    box-shadow: 0 12px 24px rgba(53, 107, 125, 0.2);
+}
+
+.toc[data-accent="wm"] .toc-item.is-active {
+    background: var(--wm);
+    box-shadow: 0 12px 24px rgba(85, 112, 75, 0.2);
+}
+
+.toc[data-accent="misc"] .toc-item.is-active {
+    background: var(--misc);
+    box-shadow: 0 12px 24px rgba(114, 93, 127, 0.2);
 }
 
 .notes-column {
@@ -358,6 +397,7 @@ h1 {
 
 .note-card {
     padding: 24px;
+    scroll-margin-top: 108px;
     border-radius: 30px;
     border: 1px solid rgba(135, 148, 161, 0.16);
     background: rgba(255, 253, 250, 0.9);
@@ -608,6 +648,12 @@ h1 {
 
     .toc {
         position: static;
+        max-height: none;
+    }
+
+    .toc-list {
+        overflow: visible;
+        padding-right: 0;
     }
 }
 
